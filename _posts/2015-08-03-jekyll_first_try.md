@@ -5,20 +5,19 @@ description: "Jekyll 是目前static site generators中最有名、最多人使�
 modified: 2015-08-03
 tags: [jekyll, web]
 image:
-  feature: abstract-3.jpg
-  credit: dargadgetz
-  creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
+  feature: 20150730_105942.jpg
+  credit: hsuan-ju in C.I.O.F.F.
 ---
 
-從2014申請了GitHub，直到現在2015才下定決心好好經營(之前都當放垃圾專案的地方XD)，希望我能持續堅持下去!!讓我的Github的Contributions能每周都有commit。
+從2014申請了GitHub，直到現在2015才下定決心好好經營(之前都當放垃圾專案的地方XD)，希望我能持續堅持下去!!讓我的Github的Contributions每周都有commit!
 
 ### 我為什麼使用Jekyll
-最初覺得LinkedIn很空，就想先從建立自己的個人網站開始擴充履歷，但一想到要租server就覺得很煩(完全免費的都好爛)。之後在網路偶然看到"快又完全免費"架個人網站的方式:<a href="http://blog.winwu.today/2013/06/githubio.html">建立github.io專頁</a>才發現原來能用Github架站!真所謂眾裡尋他千百度，驀然回首，那Github卻在燈火闌珊處。
+最初覺得LinkedIn很空，就想先從建立自己的個人網站開始擴充履歷，但一想到要租server就覺得很煩(完全免費的都好爛)。之後在網路偶然看到"快又完全免費"的架站方式:<a href="http://blog.winwu.today/2013/06/githubio.html">建立github.io專頁</a>才發現原來能用Github架站!真所謂眾裡尋他千百度，驀然回首，Github卻在燈火闌珊處。
 
-但整個網站要從無到有挺麻煩的，當時我在致力學習寫APP，不想花太多時間在網頁建置，就開始尋找好用的automatic generator!
-找到了<a href="https://www.staticgen.com/">StaticGen</a>，發現了**排名第一的Jekyll**，Github本身官方的支援讓這個開源生產器的star足足是第二名的2倍以上!fork數更5倍多!太強了!很潮所以用了!!(喂)
+但整個網站要從無到有需要花很多時間投入，當時我在致力學習APP，不想花太多時間在網頁建置，就開始尋找好用的automatic generator!
+找到了<a href="https://www.staticgen.com/">StaticGen</a>，發現了**排名第一的Jekyll**，Github本身官方的支援讓這個開源生產器的star足足是第二名的2倍以上! fork數量更是第二名的5倍多!太強了! 很潮所以用了!! (喂)
 
-fork數多代表有許多人拿來客制化，開源樣版的提供相對也會多，這裡有好心人做的開源theme整理!選一個自己看順眼的再加工比重頭開始速度快多了:<a href="https://github.com/mattvh/jekyllthemes">jekyll themes</a>
+fork數量很多代表有許多人拿此framework再客制化，開源樣版的提供相對也會多，這裡有好心人做的開源theme整理! 選一個自己看順眼的再加工比重頭開始速度快多了:<a href="https://github.com/mattvh/jekyllthemes">jekyll themes</a>
 
 ### Jekyll是什麼
 
@@ -27,7 +26,7 @@ Jekyll 是使用 Ruby 開發的「靜態網站產生器」（static site generat
 ### 我流Jekyll環境建置
 
 如同上面提到，Jekyll只有在改變layout style時才需要動到code，其他時間寫Blog時只要新增/編輯md文字檔即可。
-寫過程式的人都知道搭建環境"超級煩"，像我這種嫌棄筆電重懶的帶，又愛在學校、家裡、圖書館跑來跑去的人，有甚麼一勞永逸的好方法呢?
+寫過程式的人都知道搭建環境"超級煩"，我個人又愛在實驗室、家裡、圖書館跑來跑去，筆電又好重懶得帶，有什麼解決的好方法呢?
 
 #### 1. 使用Koding作為開發環境 
 
@@ -71,4 +70,4 @@ bundle exec jekyll serve --host 0.0.0.0
 
 #### 7. 寫文章直接在自己的github repo的_post資料夾新增md檔，按照README.md的方式撰寫即可。
 
-怎麼樣!方便又簡單吧!!下次有機會再自己設計layout style!! (等我寫完APP)
+方便又簡單吧!!下次有機會我再自己設計layout style!! 
