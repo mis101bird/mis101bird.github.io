@@ -2,7 +2,7 @@
 layout: page
 title: About the Jekyll Theme
 image:
-  feature: myself.jpg
+  feature: myself.png
   credit: hsuan ju designed
 comments: false
 modified: 2015-08-04
