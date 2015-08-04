@@ -3,7 +3,7 @@ layout: page
 title: About the Jekyll Theme
 image:
   feature: myself.png
-  credit: hsuan ju designed
+  credit: hsuan ju in Chelsea Market, New York
 comments: false
 modified: 2015-08-04
 ---
