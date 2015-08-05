@@ -73,4 +73,4 @@ bundle exec jekyll serve --host 0.0.0.0
 方便又簡單吧!!下次有機會我再自己設計layout style!! 
 ---
 關於讀者留言comment部分，大推<a href="https://disqus.com/">Disqus</a>的嵌入式留言!
-嵌入的<a href="https://help.disqus.com/customer/portal/articles/472097-universal-embed-code">詳細教學</a>如下，先嵌入他們的code至自己的網站，再幫個人網站<a href="https://disqus.com/admin/create/">註冊comment</a>，得到的shortname修改_config.yml就完成了!!
+嵌入的<a href="https://help.disqus.com/customer/portal/articles/472097-universal-embed-code">詳細教學</a>如下，先嵌入他們的code至自己的網站，再幫個人網站<a href="https://disqus.com/admin/create/">註冊comment board</a>，得到的shortname拿去更新_config.yml的設定就完成了!!
