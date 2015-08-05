@@ -28,7 +28,7 @@ Jekyll 是使用 Ruby 開發的「靜態網站產生器」（static site generat
 如同上面提到，Jekyll只有在改變layout style時才需要動到code，其他時間寫Blog時只要新增/編輯md文字檔即可。
 寫過程式的人都知道搭建環境"超級煩"，我個人又愛在實驗室、家裡、圖書館跑來跑去，筆電又好重懶得帶，有什麼解決的好方法呢?
 
-#### 1. 使用Koding作為開發環境 
+#### 1. 使用<a href="https://koding.com/">Koding</a>作為開發環境 
 
 Koding是一個網站，他專門在提供開發部份雲端服務。在Koding網站裡，你可以擁有自己的VM（Linux終端機），並且使用他來開發程式或開發網站。目前Koding支持的語言開發為Python、**Ruby**、Perl、HTML/CSS、PHP、Node.js......等只要能夠在Linux上執行的程式語言都可以使用。當然最重要的是他的服務完全免費！有它不只能無時無刻coding，也省掉建置Ruby環境的麻煩了!!
 
@@ -71,3 +71,6 @@ bundle exec jekyll serve --host 0.0.0.0
 #### 7. 寫文章直接在自己的github repo的_post資料夾新增md檔，按照README.md的方式撰寫即可。
 
 方便又簡單吧!!下次有機會我再自己設計layout style!! 
+---
+關於讀者留言comment部分，大推<a href="https://disqus.com/">Disqus</a>的嵌入式留言!
+嵌入的<a href="https://help.disqus.com/customer/portal/articles/472097-universal-embed-code">詳細教學</a>如下，先嵌入他們的code至自己的網站，再幫個人網站<a href="https://disqus.com/admin/create/">註冊comment</a>，得到的shortname修改_config.yml就完成了!!
