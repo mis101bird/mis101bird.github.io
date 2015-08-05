@@ -9,7 +9,7 @@ image:
   credit: hsuan-ju in New York
 ---
 
-實驗室分配一個全新的電腦給我，因為硬碟容量超大，就想說來試試雙系統，就跟圖書館要了linux光碟來灌，還切了300多GB的主磁碟空間給它，沒想到那個linux Ubuntu的版本竟然是11.04！舊到連chrome都不支援了！ 所以我很隨便的直接在Win7裡把灌Linux的300多GB直接格式化了...關機後，開機就一片黑，只有**grub rescue>**在螢幕上方，我才很遲鈍的察覺大事不妙了...以下記錄我如何從崩潰的grub rescue>到重新灌完雙系統(Win7+Ubuntu 14)的過程。
+實驗室分配一個全新的電腦給我，因為硬碟容量超大，就想說來試試雙系統，就跟圖書館要了linux光碟來灌，還切了300多GB的主磁碟空間給它，沒想到那個linux Ubuntu的版本竟然是11.04！舊到連chrome都不支援了！ 所以我很隨便的直接在Win7裡把灌Linux的300多GB直接格式化了...關機後，開機就一片黑，只有**grub rescue>**在螢幕上方，我才很遲鈍的察覺大事不妙了...以下記錄我如何從崩潰的grub rescue>到重新灌完雙系統(Win7+Ubuntu 15)的過程。
 
 #### 1. grub的探索
 
@@ -29,17 +29,22 @@ Grub, or the Grand Unified Bootloader, is the most common boot loader for Linux.
 
 如果您是Linux系統還健在的請<a href="http://ubuntuforums.org/showthread.php?t=1599293">走這</a>，遇到和我一樣情況的請隨我往下。
 
-#### 2. 燒Win7和Ubuntu 14.04的iso檔入CD
+#### 2. 燒Win7和Ubuntu 15.04的iso檔入CD
+
+我在燒完Ubuntu 15.04才發現，現在<a href="http://distrowatch.com/dwres.php?resource=popularity">最火紅的Linux distribution是Mint</a>，Ubuntu越來越弱掉了...聽說Mint介面和Window相似，看來只能等下次再玩了！
 
 Win7有內建的光碟映像燒錄程式能將光碟映像檔案 (這類檔案通常具有 .iso 或 .img 的副檔名) 燒錄至可燒錄的 CD 或 DVD。
 
 步驟:
 
 1. 將可燒錄的 CD、DVD 或藍光光碟插入光碟燒錄機。
-2.
+
+2. 
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-1.png)
 {: .image-center}
+
+ps: <a href="http://www.ubuntu.com/desktop/get-ubuntu/download">下載 Ubuntu</a> 安裝光碟的 iso 檔頁面是英文的，但是抓回來的安裝檔案一律是多國語言，所以，安裝中文版本的Ubuntu並不需要特地跑去中文版的網頁下載，等之後真正安裝時，語言設定再調即可。
 
 3.
 
