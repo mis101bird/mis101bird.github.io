@@ -9,17 +9,27 @@ image:
   credit: hsuan-ju in New York
 ---
 
-從2014申請了GitHub，直到現在2015才下定決心好好經營(之前都當放垃圾專案的地方XD)，希望我能持續堅持下去!!讓我的Github的Contributions每周都有commit!
+實驗室分配一個全新的電腦給我，因為硬碟容量超大，就想說來試試雙系統，就跟圖書館要了linux光碟來灌，還切了300多GB的主磁碟空間給它，沒想到那個linux Ubuntu的版本竟然是11.04！舊到連chrome都不支援了！ 所以我很隨便的直接在Win7裡把灌Linux的300多GB直接格式化了...關機後，開機就一片黑，只有**grub rescue>**在螢幕上方，我才很遲鈍的察覺大事不妙了...以下記錄我如何從崩潰的grub rescue>到重新灌完雙系統(Win7+Ubuntu 14)的過程。
 
-### 我為什麼使用Jekyll
-最初覺得LinkedIn很空，就想先從建立自己的個人網站開始擴充履歷，但一想到要租server就覺得很煩(完全免費的都好爛)。之後在網路偶然看到"快又完全免費"的架站方式:<a href="http://blog.winwu.today/2013/06/githubio.html">建立github.io專頁</a>才發現原來能用Github架站!真所謂眾裡尋他千百度，驀然回首，Github卻在燈火闌珊處。
+#### 1. grub的探索
 
-但整個網站要從無到有需要花很多時間投入，當時我在致力學習APP，不想花太多時間在網頁建置，就開始尋找好用的automatic generator!
-找到了<a href="https://www.staticgen.com/">StaticGen</a>，發現了**排名第一的Jekyll**，Github本身官方的支援讓這個開源生產器的star足足是第二名的2倍以上! fork數量更是第二名的5倍多!太強了! 很潮所以用了!! (喂)
+首先使用指令**ls**，他列出我4個已經切割的磁碟區域，之後我follow三步驟測試:
 
-fork數量很多代表有許多人拿此framework再客制化，開源樣版的提供相對也會多，這裡有好心人做的開源theme整理! 選一個自己看順眼的再加工比重頭開始速度快多了:<a href="https://github.com/mattvh/jekyllthemes">jekyll themes</a>
+{% highlight ruby %}
+ls                               # List the known drives (hdX) and partitions (hdX,Y)
+ls (hdX,Y)/                      # List the contents of the partition's root
+ls (hdX,Y)/boot/grub             # Normal location of the Grub 2 modules.
+ls (hdX,Y)/usr/lib/grub/i386-pc  # Alternate location of the Grub 2 modules.
+{% endhighlight %}
 
-### Jekyll是什麼
+發現結果全部都是"error: unknown filesystem"，查了資料才知道這代表4個磁碟的OS都不是Linux系統，因為Linux系統是用資料夾的方式構成，這結果也非常合理，因為我4個磁碟區分別是window C槽、D槽、預留空間和舊Ubuntu已經被清除掉的300多GB磁碟空間。
+
+Grub, or the Grand Unified Bootloader, is the most common boot loader for Linux.
+而Window的boot loader(引導加載程序)是 Master Boot Record (MBR)，Grub無法啟動Window OS壓~
+
+如果您是Linux系統還健在的請<a href="http://ubuntuforums.org/showthread.php?t=1599293">走這</a>，遇到和我一樣情況的請隨我往下。
+
+#### 2. 燒Win7的iso檔入CD
 
 Jekyll 是使用 Ruby 開發的「靜態網站產生器」（static site generator)，和一般直接以 HTML 編寫靜態網站不同的地方是，Jekyll 產生的網站可以有佈景、模組等動態的好處，當你需要修改網站整體的佈局（layout），只需要設計、切換為新的佈景，重新產生的網站就會套用新的外觀，所以平常撰寫Blog文章時只用新增md檔，不需動到coding部份。
 
