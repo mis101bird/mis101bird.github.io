@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "[jekyll]我的第一個Github個人網站"
-description: "Jekyll 是目前static site generators中最有名、最多人使用的，在本篇將記錄我第一次使用jekyll建立github個人網站的經驗。"
-modified: 2015-08-03
-tags: [jekyll, web]
+title: "[Linux+Win7]從grub復活到雙系統"
+description: "崩潰的復活經驗。"
+modified: 2015-08-05
+tags: [Ubuntu, linux, win7, 雙系統, 環境建置]
 image:
-  feature: 20150730_105942.jpg
-  credit: hsuan-ju in C.I.O.F.F.
+  feature: newyork.jpg
+  credit: hsuan-ju in New York
 ---
 
 從2014申請了GitHub，直到現在2015才下定決心好好經營(之前都當放垃圾專案的地方XD)，希望我能持續堅持下去!!讓我的Github的Contributions每周都有commit!
