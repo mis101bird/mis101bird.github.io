@@ -10,7 +10,7 @@ url: //mis101bird.github.io
 owner:
   name:           Hsuan-Ju Lin
   avatar:         avatar.png
-  bio:            "I'm a computer science student in National Taiwan Ocean University, and study android app development recently. I enjoy drawing comic and taking photo. I'm a infographic designer in 洞見Insight."
+  bio:            "I'm studying Front End development/Android Mobile development recently. My hobbies include drawing comic and taking photo."
   email:          mis101bird@gmail.com
   # Social networking links used in footer. 
   github: https://github.com/mis101bird 
@@ -19,7 +19,7 @@ owner:
 
 
 # Background image to be tiled on all pages
-background:       abstract-7.jpg
+background:
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   
