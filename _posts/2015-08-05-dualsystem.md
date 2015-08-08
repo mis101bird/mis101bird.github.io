@@ -38,15 +38,14 @@ Win7有內建的光碟映像燒錄程式能將光碟映像檔案 (這類檔案�
 
 步驟:
 
-1. 將可燒錄的 CD、DVD 或藍光光碟插入光碟燒錄機。
-
-2. 右鍵開啟光碟映像燒錄程式
+   1. 將可燒錄的 CD、DVD 或藍光光碟插入光碟燒錄機。
+   2. 右鍵開啟光碟映像燒錄程式
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-1.png)
 
 ps: <a href="http://www.ubuntu.com/desktop/get-ubuntu/download">下載 Ubuntu</a> 安裝光碟的 iso 檔頁面是英文的，但是抓回來的安裝檔案一律是多國語言，所以，安裝中文版本的Ubuntu並不需要特地跑去中文版的網頁下載，等之後真正安裝時，語言設定再調即可。
 
-3. 選擇CD所在之磁碟機並燒錄
+   3. 選擇CD所在之磁碟機並燒錄
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-2.png)
 
@@ -56,9 +55,8 @@ ps: <a href="http://www.ubuntu.com/desktop/get-ubuntu/download">下載 Ubuntu</a
 
 聽友人說先復原Window OS再安裝Linux比較不會出錯，可能是考量到Window我們比較熟悉的關係，有什麼萬一也比較能處理。
 
-1. 插入Win7光碟後關機。
- 
-2. 開機，以ASUS電腦桌電為例，當螢幕進入"ASUS"畫面時，**長按F8**直到呼叫 Boot Device Menu(ASUS筆電為ESC)。
+   1. 插入Win7光碟後關機。
+   2. 開機，以ASUS電腦桌電為例，當螢幕進入"ASUS"畫面時，**長按F8**直到呼叫 Boot Device Menu(ASUS筆電為ESC)。
  
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-4.jpg)
 
@@ -76,41 +74,40 @@ ASUS用F8做選取開機功能，跟**windows的F8**進安全模式相同，所�
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-10.jpg)
 
-3. 恢復Win7後，開啟電腦管理
+   3. 恢復Win7後，開啟電腦管理
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-5.png)
 
-4. 查看磁碟管理，分割空間給Linux OS
+   4. 查看磁碟管理，分割空間給Linux OS
 
 我直接把之前亂割的310.50 GB 給新的Ubuntu了，滿浪費的...
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-6.png)
 
-5. 關機
+   5. 關機
 
 #### 4. 用Ubuntu光碟開機並安裝
 
-1. 如上面的1~2小項，把光碟換成Ubuntu
-
-2. 照著步驟Next，注意安裝類型要選"其他(Other)"，第一項清除磁碟超可怕！！詳細請<a href="http://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+14.04">參考這裡</a>。
+   1. 如上面的1~2小項，把光碟換成Ubuntu
+   2. 照著步驟Next，注意安裝類型要選"其他(Other)"，第一項清除磁碟超可怕！！詳細請<a href="http://blog.xuite.net/yh96301/blog/242333268-%E5%AE%89%E8%A3%9DUbuntu+14.04">參考這裡</a>。
 
 #### 5. Ubuntu網路問題
 
-1. 安裝後重開機，就能看到下圖令人感動的螢幕。
+   1. 安裝後重開機，就能看到下圖令人感動的螢幕。
  
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-9.jpg)
 
-2. 選擇Linux後，會發現有線網路無法連上，不知道為何雙系統不會自動偵測...可能是會跟Window OS衝到吧。所以我按右上方的網路圖示，對已經內建的connection 1 展開手動設定。
+   2. 選擇Linux後，會發現有線網路無法連上，不知道為何雙系統不會自動偵測...可能是會跟Window OS衝到吧。所以我按右上方的網路圖示，對已經內建的connection 1 展開手動設定。
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-3.jpg)
  
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-8.jpg)
 
-3. 對IPv4/IPv6(看妳IP用哪種)展開設定，也別忘DNS
+   3. 對IPv4/IPv6(看妳IP用哪種)展開設定，也別忘DNS
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-7.jpg)
 
-4. 完成有線網路設定！
+   4. 完成有線網路設定！
 
 #### 6. 完成安裝Ubuntu後
 
@@ -125,9 +122,8 @@ apt-get dist-upgarde
 
 #### 7. 設定英文版介面，但擁有中文輸入法(個人愛好)
 
-1. 設定英文版介面: 點選系統(System) ->管理(Administration)-> 語言支援(Language Selector)
- 
-2. 安裝好用的<a href="http://blog.xuite.net/yh96301/blog/287374341-Ubuntu+14.04%E5%AE%89%E8%A3%9D%E9%8D%B5%E7%9B%A4%E8%BC%B8%E5%85%A5%E6%B3%95%E7%B3%BB%E7%B5%B1gcin">中文輸入法gcin</a>。
+   1. 設定英文版介面: 點選系統(System) ->管理(Administration)-> 語言支援(Language Selector)
+   2. 安裝好用的<a href="http://blog.xuite.net/yh96301/blog/287374341-Ubuntu+14.04%E5%AE%89%E8%A3%9D%E9%8D%B5%E7%9B%A4%E8%BC%B8%E5%85%A5%E6%B3%95%E7%B3%BB%E7%B5%B1gcin">中文輸入法gcin</a>。
 
 
 再來就能好好痛快玩Ubuntu了！
