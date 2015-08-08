@@ -84,7 +84,7 @@ ASUS用F8做選取開機功能，跟**windows的F8**進安全模式相同，所�
 
 ![Smithsonian Image]({{ site.url }}/images/recover/recover-6.png)
 
-   5. 關機
+   * 關機
 
 #### 4. 用Ubuntu光碟開機並安裝
 
