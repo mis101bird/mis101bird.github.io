@@ -43,7 +43,7 @@ image:
 
 <div markdown="0">
 <ol>
-    {% for post in site.tags[snapevent] %}{% if post.title != null %}
+    {% for post in site.tags["snapevent"] %}{% if post.title != null %}
       <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>: {{ post.description }}</li>
     {% endif %}{% endfor %}
 </ol>
