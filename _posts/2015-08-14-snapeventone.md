@@ -17,7 +17,7 @@ image:
 
 ## 設計圖
 
-![Snapevent Image 01]({{ site.url }}/images/snapevent/01.jpg)
+![Snapevent Image 01]({{ site.url }}/images/snapevent1/01.jpg)
 
 會用到的大概有Service組件、Broadcast組件、ViewPager、ListView、圖片與資料的緩存優化等...還沒開始做所以細節不知道(揍)
 
@@ -31,7 +31,7 @@ image:
 
 首先圖片可用photoshop、illustrator為工具協助繪製。關於背景圖，我用Google的<a href="https://www.google.com/design/spec/resources/layout-templates.html">layout templates</a>為底圖大小做設計，產出如下。
 
-![Snapevent Image 02]({{ site.url }}/images/snapevent/02.PNG)
+![Snapevent Image 02]({{ site.url }}/images/snapevent1/02.PNG)
 
 感恩Github釋出的開原軟體<a href="https://github.com/redwarp/9-Patch-Resizer/releases">9-Patch-Resizer</a>，能讓我們製作出適合不同屏幕size的圖片放入xxhdpi、xhdpi、hdpi、mdpi等...資料夾。
 
