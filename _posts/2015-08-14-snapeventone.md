@@ -39,14 +39,5 @@ image:
 
 >  找配色時，好用的<a href="http://www.wingsv.org/2013/09/google-chrome-htmlrgb.html">取色軟體</a>也很重要，看到順眼的能直接把HTML 碼或 RGB 編碼拿下來套在自己的App上。
 
-## 進度攔 
-
-| index | title | description | 
-|:--------|:-------:|:--------:|
-| 1 | [Android 5.0 的Toolbar+Tab+ViewPager]({% 2015-08-16-snapevent2 %}) | 從自己客製化Android 5.0 的Toolbar+Tab+ViewPager到運用Github上神人開發的MaterialTabs套件。 |
-|=====
-| Be continued...| | | 
-{: rules="groups"}
-
 ##專案REPO
 <div markdown="0"><a href="https://github.com/mis101bird/SnapEvent" class="btn">SnapEvent</a></div>
