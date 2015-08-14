@@ -41,11 +41,13 @@ image:
 
 ##系列進度
 
-	<ol>
+<div markdown="0">
+<ol>
     {% for post in site.tags[snapevent] %}{% if post.title != null %}
-      <li><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>: {{ post.description }}</li>
+      <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>: {{ post.description }}</li>
     {% endif %}{% endfor %}
-	</ol>
-		
+</ol>
+</div>
+
 ##專案REPO
 <div markdown="0"><a href="https://github.com/mis101bird/SnapEvent" class="btn">SnapEvent</a></div>
