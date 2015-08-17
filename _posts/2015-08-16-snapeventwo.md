@@ -131,8 +131,8 @@ style.xml
     </style> #tabTextAppearance引用到下方style
 
     <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="textAllCaps">false</item>  #Tab的title是否全大寫，如果Tab上是放icon就設false
-    </style>
+        <item name="textAllCaps">false</item>  
+    </style> #Tab的title是否全大寫，如果Tab上是放icon就設false
 
 </resources>
 {% endhighlight %}
@@ -264,11 +264,11 @@ Github上有很多神人提供已經包好的MaterialTabs套件，經過一段�
 
 1 ) 下載它的App-<a href="https://play.google.com/store/apps/details?id=io.karim.materialtabs.sample">Material Tabs Demo</a>後，開啟App會看到以下畫面，準備客製化自己的Tab外觀。
 
-![Snapevent2 Image 04]({{ site.url }}/images/snapevent2/04.png)
-
-觀察演示，滿意後把xml標籤檔寄給自己。
-
-![Snapevent2 Image 05]({{ site.url }}/images/snapevent2/05.png)
+<figure class="half">
+	<img src="/images/snapevent2/04.png" alt="">
+	<img src="/images/snapevent2/05.png" alt="">
+	<figcaption>觀察演示，滿意後把xml標籤檔寄給自己。</figcaption>
+</figure>
 
 2 ) 在dependencies添加套件，把剛寄給自己的xml標籤添加到自己佈局的Toolbar和ViewPager之間，不用管TabLayout之類。
 
