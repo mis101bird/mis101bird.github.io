@@ -241,13 +241,17 @@ public class MainActivity extends AppCompatActivity { //ActionBarActivity在Andr
 
 ## 4 ) 大功告成，成果如下
 
-![Snapevent2 Image 01]({{ site.url }}/images/snapevent2/01.jpg)
+<figure>
+	<img src="/images/snapevent2/01.jpg" alt="">
+	<figcaption></figcaption>
+</figure>
 
 > 注意再import使用包時，引用v7、v4等...版本包比較能向下相容，用了後，整個專案的引用包都要保持一致，否則會報錯。
 
 ## 5 ) 程式碼
 
 git clone下面專案到自己的電腦後，使用 **git checkout 1e9b .** ，還原到剛完成滑動Tab時的版本。
+
 <div markdown="0"><a href="https://github.com/mis101bird/SnapEvent" class="btn">SnapEvent</a></div>
 
 ## 使用Github上神人開發的MaterialTabs套件
@@ -299,11 +303,15 @@ tabs.setViewPager(viewPager);
 
 4 ) 超快的完成了！
 
-![Snapevent2 Image 03]({{ site.url }}/images/snapevent2/03.jpg)
+<figure>
+	<img src="/images/snapevent2/03.jpg" alt="">
+	<figcaption></figcaption>
+</figure>
 
 5 ) 程式碼
 
 git clone下面專案到自己的電腦後，使用 **git checkout practice** ，切換到branch **practice**。
+
 <div markdown="0"><a href="https://github.com/mis101bird/SnapEvent/tree/practice" class="btn">SnapEvent</a></div>
 
 ## 下次會是圖片緩存及用http請求server端資料等內容，繼續衝刺了！
