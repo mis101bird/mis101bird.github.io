@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[Linux+Win7]從grub復活到雙系統"
-description: "崩潰的復活經驗。"
+description: "解說電腦進入grub後，如何不重灌再重裝Win7和Ubuntu 15"
 modified: 2015-08-05
 tags: [Ubuntu, linux, win7, 雙系統, 環境建置]
 image:
