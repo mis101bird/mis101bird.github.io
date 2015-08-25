@@ -4,7 +4,7 @@ This is my first personal website. I record weekly learning and infographic work
 
 # HPSTR Jekyll Theme
 
-Here is the free responsive Jekyll theme I use. You can check the original repo from [Here](https://github.com/mmistakes/hpstr-jekyll-theme)
+Here is the free responsive Jekyll theme I used. You can check the original repo from [Here](https://github.com/mmistakes/hpstr-jekyll-theme)
 
 * Modern and minimal design.
 * Responsive templates for post, page, and post index `_layouts`. Looks great on mobile, tablet, and desktop devices.
