@@ -16,11 +16,11 @@ image:
 
 ## 為何使用Volley框架請求網路數據
 
-一談到Android的網路請求方式，相信大家第一個想到的就是HttpURLConnection和HttpClient，我以前也是這樣寫過來的。但是，如果請求的東西單純還好，如果要POST、要傳複雜的參數或請求網路圖片等...
-就會感到前所未有的煩躁，重複創建AsyncTask，一直重複copy/past的動作，還要擔心自己的寫法穩定性是否夠。
+一談到Android的網路請求方式，相信大家第一個想到的就是HttpURLConnection和HttpClient，我以前也是這樣寫過來的。但若請求的東西單純還好，如果要POST、要傳複雜的參數或請求網路圖片等...
+就會感到前所未有的煩躁，重複創建AsyncTask，一直重複copy/past的動作，還要擔心自己的寫法穩定性是否足夠。
 
-但超級開心我亂逛網站時，偶然得知了Volley框架。Volley是Google在2013 Google I/O大會上發表的網路通訊框架，它將Http的通訊細節都經過封裝，讓使用者能輕鬆的請求網路數據。
-GitHub中，比較複雜的APP也常看到Volley的蹤跡。但Volley有優點也有缺點，要不要使用它事情況而定。下面是Volley優缺點列表：
+幸運的是我亂逛網站時，偶然得知了Volley框架。Volley是Google在2013 Google I/O大會上發表的網路通訊框架，它將Http的通訊細節都經過封裝，讓使用者能輕鬆的請求網路數據。
+GitHub中，比較複雜的APP也常看到Volley的蹤跡。但Volley有優點也有缺點，是否使用它要視情況而定。下面是Volley優缺點列表：
 
 ###優點
 
@@ -33,11 +33,11 @@ GitHub中，比較複雜的APP也常看到Volley的蹤跡。但Volley有優點�
 
 1. 不適合大數據的上傳/下載
 
-Volley設計的目標就是請求**數據量不大但頻繁的網路資料**，所以如果大數據量的網路下載(ex 下載檔案文件)，Volley表現就會很不好。
+Volley設計的目標就是請求**數據量不大但頻繁的網路資料**，所以如果有大數據量的網路下載(ex 下載檔案文件)，Volley表現就會不太好。
 
 ## Volley的GET請求
 
-因為這次我只會使用到Volley的GET，而Volley裡文字數據的請求有三個，StringRequest、JsonObjectRequest和JsonArrayRequest。JsonObjectRequest和JsonArrayRequest可以讓請求JSON數據時更快速，只可惜這次要請求的是XML數據，所以以下說明將使用**StringRequest的GET方法做請求**，JsonObjectRequest和JsonArrayRequest用法其實和StringRequest相似，詳細會在以後用到時再做介紹，還有Volley最方便的網路圖片請求也會在以後做說明！
+因為這次我只會使用到Volley的GET，而Volley裡文字數據的請求有三個，StringRequest、JsonObjectRequest和JsonArrayRequest。JsonObjectRequest和JsonArrayRequest可以讓請求JSON數據時更快速，只可惜這次要請求的是XML數據，所以以下說明將使用**StringRequest的GET方法做請求範例**，JsonObjectRequest和JsonArrayRequest的用法其實和StringRequest相似，詳細會在以後用到時再做介紹，還有Volley最方便的網路圖片請求也會在以後做說明！
 
  1 ) 引用volley包
 
@@ -51,7 +51,7 @@ dependencies {
 
  2 ) 宣告請求對列RequestQueue
 
-RequestQueue用來緩存所有HTTP請求，RequestQueue內會按照一定算法發出網路請求。而RequestQueue本身就適合高開發，所以重複宣告多個很浪費資源，故RequestQueue物件大都設為全局Application的變數。
+RequestQueue用來緩存所有HTTP請求。RequestQueue內會按照一定算法發出網路請求。而RequestQueue本身就適合高開發，所以重複宣告多個很浪費資源，故RequestQueue物件大都設為全局Application的變數。
 
 {% highlight java%}
 public class MyApp extends Application{
@@ -97,7 +97,7 @@ mQueue.add(stringRequest);
 ## Java中，解析XML的方便套件：SimpleXML
 
 台灣有很多活動網站，但不是沒提供完整的API，要不然就是API資料還死守XML不放......尋了好久，最後還是決定，用請求KKTIX的RSS xml資料，來獲得每日活動詳細。
-RSS的xml 資料層次多，一層包一層又沒固定格式，如果想快速取出想要的資訊，並跳過不需要的資料，好的XML解析套件就非常重要。
+RSS的xml 資料層次多，一層包一層很複雜，如果想快速取出想要的資訊，並跳過不需要的資料，好的XML解析套件就非常重要。
 在這個JSON輕量級資料傳輸格式幾乎取代XML的時代，找出好的XML解析套件花了我不少時間，最後終於找到超直觀好用又穩定的套件：SimpleXML了！！
 
 SimpleXML的使用思路是，先跟據要解析的XML文件創建一個java class(用SimpleXML規定的方式撰寫)，再通過這個java class去取得XML文件內的具體值。
