@@ -3,8 +3,8 @@ layout: page
 title: My Infographic Works
 description: "This place show my infographic works in Insight洞見."
 image:
-  feature: abstract-11.jpg
-  credit: dargadgetz
+  feature: ingo.png
+  credit: hsuan-ju use Piktochart
 share: true
 ---
 <figure class="half">
