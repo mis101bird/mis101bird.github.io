@@ -6,7 +6,7 @@ words_per_minute: 200
 # url:(eg: //mis101bird.github.io, http://mis101bird.com, etc)
 # When testing locally leave blank or use http://localhost:4000
 locale: zh-tw
-url: https://mis101bird.com
+url: http://mis101bird.com
 # Owner/author information
 owner:
   name:           Hsuan-Ju Lin
