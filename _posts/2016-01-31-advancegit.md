@@ -170,10 +170,10 @@ git checkout是切換工作目錄的意思。
 	<figcaption></figcaption>
 </figure>
 
-再來我們在master主支合併myTest分支回master：
+然後，我們要在master主支，將myTest分支合併回來：
 
-* 左圖使用fast-forward指令(git預設): git merge --ff myTest，我們可以發現log flow沒有小耳朵，直接連成一條直線，myTest和master的HEAD都來到最新版本。當我們在合併遠端追蹤分支到本地分支時，我們會希望同一人開發就同一條branch就好，不要因為這個單純的同步，讓分支到處分岔出去添亂。故用這個指令能讓log flow比較清楚易懂。
-* 左圖使用no fast-forward指令: git merge --no-ff myTest，這個指令在開發者把“別人”的分支合併回master時常用。為了追蹤方便，我們習慣把分岔出去的小耳朵，認為是別人開發的分支，這樣會比較方便追蹤。
+* 左圖使用fast-forward指令(git預設): git merge --ff myTest，我們可以發現log flow沒有小耳朵，直接連成一條直線，myTest和master的HEAD都來到最新版本。當我們在合併遠端追蹤分支到本地分支時，我們會希望同一人開發用同一條branch就好，不要因為這個單純的同步，讓分支到處分岔出去添亂。
+* 右圖使用no fast-forward指令: git merge --no-ff myTest，這個指令在開發者把“別人”的分支合併回master時常用。為了追蹤方便，我們習慣把分岔出去的小耳朵，認為是別人開發的分支，這樣會比較方便追蹤。
 
 <figure class="half">
 	<img src="/images/git1/16.png" alt="tag">
@@ -189,7 +189,7 @@ git checkout是切換工作目錄的意思。
 ### Pull
 簡單說，Pull = Fetch + Merge，pull預設的merge就是fast-forward，我們可以使用git pull --no-ff指令，指定no fast-forward。如果在pull時遇到衝突，可以使用git reset --merge回復到merge前的狀態(也就是只執行到fetch)，查看衝突再merge。
 
-* 我們可以將pull預設改用 fast-forward only： git config --local pull.ff only，好處是當我們無法pull時，馬上就知道遠端伺服器的版本被更動了！此時用git pull --ff 就能解決。
+* 我們可以將pull預設改用 fast-forward only： git config --local pull.ff only，好處是當我們無法pull時，馬上就知道遠端伺服器的版本被更動了！此時用git fetch 先同步遠端追蹤分支，查看遠端的變更再手動merge。
 
 ### Rebase
 git rebase是重新定義基底點的意思，其說明在這篇<a href="https://blog.yorkxin.org/posts/2011/07/29/git-rebase/">Git-rebase小筆記</a>說得很清楚。他的感覺就像把樹枝拔下來重新插在其他分支，如下面左圖，執行以下指令：
@@ -218,7 +218,7 @@ git rebase是重新定義基底點的意思，其說明在這篇<a href="https:/
 2. git cherry-pick {commit id: add test}
 3. git cherry-pick {commit id: add test2}
 
-我們可以看到log flow變成右圖，test上的2個commits被原封不動的搬到master上，成master的新版本。
+我們可以看到log flow變成右圖，test上的2個commits被原封不動的搬到master上，成為master的新版本。
 
 <figure class="half">
 	<img src="/images/git1/20.png" alt="tag">
@@ -226,9 +226,9 @@ git rebase是重新定義基底點的意思，其說明在這篇<a href="https:/
 	<figcaption></figcaption>
 </figure>
 
-沒有發生衝突沒事，一發生衝突時，使用怎麼樣得cherry-pick操作就很重要。我們看到下圖SmartGit的Cherry-pick操作，有兩個選擇：cherry-pick & commit 跟 cherry-pick。
+沒有發生衝突還好，一發生衝突時，怎麼繼續進行cherry-pick就很重要。我們看到下圖SmartGit的Cherry-pick操作，有兩個選擇：cherry-pick & commit 跟 cherry-pick。
 
-含commit的選象為cherry-pick指令預設，我們處理完衝突後，要用git cherry-pick --continue留下版本紀錄，才算完成整個cherry-pick流程。如果覺得衝突太多想取消這次cherry-pick，可以輸入git cherry-pick --abort放棄這次cherry-pick；後者的指令有加上--no-commit，其只有把所選的版本變更合併進所在分支後，就完成cherry-pick了，沒有督促我們留下任何commit紀錄。我們能使用這個指令，合併完變更版本後再做一些客製化修改，再commit。
+含commit的選象為cherry-pick預設，我們處理完衝突後，要用git cherry-pick --continue讓git留下commit紀錄，才算完成整個cherry-pick流程。如果覺得衝突太多想取消這次cherry-pick，可以輸入git cherry-pick --abort放棄這次cherry-pick；下圖最右邊的選項，cherry-pick指令有加上--no-commit。此指令只有把所選的版本的變更合併進所在分支後，就完成cherry-pick了，沒有督促我們留下任何commit紀錄。我們能使用這個指令，合併完變更版本後再做一些客製化修改，再commit。
 
 <figure>
 	<img src="/images/git1/22.png" alt="tag">
@@ -252,7 +252,7 @@ git rebase是重新定義基底點的意思，其說明在這篇<a href="https:/
 解決完衝突後，別忘記git cherry-pick --continue，完成cherry-pick的程序。否則一不小心忘記而跳到別的branch，之前所做的修正可能會都不見。
 
 #### 小知識:
-> cherry-pick會把之前的版本原封不動的搬到所在分支上，所以cherry-pick過來的版本的時間和作者等...都和原本的commit一模一樣，這樣讓人方便追蹤是誰何時做的版本變更。
+> cherry-pick會把之前的版本原封不動的搬到所在分支上，所以cherry-pick的新commit的時間和作者等...都和原本的commit一模一樣，這樣讓人方便追蹤是誰何時做的版本變更。
 
 <figure>
 	<img src="/images/git1/23.png" alt="tag">
@@ -260,7 +260,7 @@ git rebase是重新定義基底點的意思，其說明在這篇<a href="https:/
 </figure>
 
 #### (2) Revert展示：
-首先，看到下圖的log flow。我們希望“回復“之前的commit: fix所做的變更。
+首先，看到下圖的log flow。我們希望“取消“之前的commit: fix所做的變更。
 
 <figure>
 	<img src="/images/git1/26.png" alt="tag">
@@ -274,14 +274,14 @@ commit: fix變更了test.txt的內容，修正了衝突。我們希望將test.tx
 	<figcaption></figcaption>
 </figure>
 
-如果沒有遇到衝突，就能看到log flow變成下圖。 git revert會恢復指定commit的變更，並下新的commit紀錄此次恢復。我們可以在指令加上--no-commit，讓revert執行後不要馬上系統自動commit，讓我們有空間做些許調整後再自己手動commit。
+如果沒有遇到衝突，就能看到log flow變成下圖。 git revert會取消指定commit的變更，並下新的commit紀錄此次恢復。我們可以在指令加上--no-commit，讓revert執行後不要系統自動commit，讓我們有空間做些許調整後再自己手動commit。
 
 <figure>
 	<img src="/images/git1/28.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
 
-revert遇到衝突時的應對方式和cherry-pick一模一樣，通常會在我們試圖恢復老舊的變更時發生，參照下圖。遇到衝突時，多用** git status **查看是好用的。
+revert遇到衝突時的應對方式和cherry-pick一模一樣，通常會在我們試圖revert "一直被變更的文件" 的舊commit時發生，因為舊commit和新commit對同份文件的變更可能會相衝到，參照下圖。遇到衝突時，多用** git status **查看是好用的。
 
 <figure>
 	<img src="/images/git1/29.png" alt="tag">
@@ -289,7 +289,7 @@ revert遇到衝突時的應對方式和cherry-pick一模一樣，通常會在我
 </figure>
 
 ### 結語
-git的觀念雖然比較難具象化，但一懂一輩子受用無窮，可說是最棒的版本追蹤+備份工具。下篇將解說如何用git做協同合作，期待再見XD
+git的觀念雖然比較難具象化，但懂的話，一輩子受用無窮，可說是最棒的版本追蹤+備份工具。下篇將解說如何用git做協同合作，期待再見XD
 
 
 
