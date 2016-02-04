@@ -15,6 +15,7 @@ image:
 我最初使用git的時候，對branch的概念不熟悉，又固執的只用git shell做git操作，導致每次branch一複雜就會亂了手腳。之後因為一次機緣，試用Git GUI工具才發現，它不只會顯示log flow讓使用者了解目前版本進度，還能直接點選flow上面的commit版本做checkout、reset等操作，對我掌控整個git的版本控制非常有幫助，也讓我比較有“勇氣”用git輔助比較複雜的專案做開發，強烈推薦大家使用。
 
 眾多Git GUI工具中，<a href="http://www.syntevo.com/smartgit/">SmartGit</a>一直蟬聯使用者喜好度的排行榜第一名，可惜它要錢。如果我們只是要在Github上面做貢獻，可以使用SmartGit的non-commercial版本，但如果是公司要使用，可能就要另尋工具了。除了SmartGit，網路上仍有許多免費的GUI工具可以使用，像是<a href="https://code.google.com/p/tortoisegit">TortoiseGit(Windows)</a>和<a href="http://www.sourcetreeapp.com">SourceTree(Windows/Mac)</a>。提醒一下，SourceTree的log flow要調整為 Ancestor Order(以各版本祖先的順位做排序)，才會看到我們比較熟悉的log flow。
+
 #### SmartGit log flow:
 
 <figure>
@@ -22,9 +23,9 @@ image:
 	<figcaption></figcaption>
 </figure>
 
-點選log flow上面的commit版本並右鍵，就能對其進行checkout/revert等...操作，本flow是標準的Github flow開發方式，其他貢獻者自行開分支增加新功能或修正issue，修正好，測試完成後才合併回master主支。這種開發方式簡單易懂，又能很清楚看到哪些功能是哪個貢獻者開發的，又在哪個階段合併回主支的。詳細說明會在之後的章節提到。
+點選log flow上面的commit版本並右鍵，就能對其進行checkout/revert等...操作。
 
-### log flow中，branch flow的差別
+### log flow中，branch 間的差別
 
 <figure>
 	<img src="/images/git1/0.png" alt="smartgit log flow">
@@ -38,14 +39,16 @@ image:
 	<figcaption></figcaption>
 </figure>
 
-由左至右可以看到上一個commit和這一次commit間改動的情況，沿著顏色光標對照非常清楚。右上角有紀錄此commit共增減多少行程式碼，上下箭頭會引導到每個不同的更改內容。
+由左至右可以看到上一個commit和這一次commit間改動的情況。沿著顏色光標，我們可以看到當下這個commit做的變更，將getActivity()刪除了。此外，右上角會有紀錄此commit共增減多少行程式碼，上下箭頭會引導到每個不同的更改內容。
+
 ### 基礎提醒
+
 #### HEAD
 Git 是如何知道你當前在哪個分支上工作的呢？其實答案也很簡單，它保存著一個名為 HEAD 的特別指標。在Git中，它是一個指向你正在工作中的本地分支的指標，會一直指向分支的頭，在HEAD下commit的版本紀錄才會被分支追蹤到。這裏提供<a href="http://devtian.me/2015/03/07/Git-studynotes-mechanism/">Git原理筆記</a>給大家做進一步了解。
 
 #### git log & git reflog
-* git log: 顯示開發者自身commit過的紀錄
-* git reflog: 顯示**"所有"**commit過的紀錄，包含git操作時自動commit的紀錄，EX: checkout/pull/push等...紀錄
+* git log: 顯示開發者自身commit的紀錄
+* git reflog: 顯示**"所有"**commit的紀錄，包含git操作時自動做的commit，EX: checkout/pull/push等...紀錄
 
 ### 重要原則
 Git branch相關的指令多到令人眼花撩亂，但有幾個原則搞清楚，在操作指令時就能比較得心應手。
@@ -60,7 +63,7 @@ Git branch相關的指令多到令人眼花撩亂，但有幾個原則搞清楚�
 	<figcaption></figcaption>
 </figure>
 
-首先是merge! 我們先git checkout master到master分支，之後的操作就只會動到當前分支：master branch。再來用git merge topic，將topic合併到master。如下圖，我們看到master增加了**H 版本：合併topic branch至master branch**。
+首先是merge! 我們先git checkout master到master分支，之後的操作就只會動到當前分支：master branch。再來用git merge topic，將topic合併到master。如下圖，我們看到master分支被更動，增加了**H commit：合併topic branch至master branch**。
 
 <figure>
 	<img src="/images/git1/03.png" alt="merge">
@@ -98,11 +101,10 @@ git checkout是切換工作目錄的意思。
 
 本指令將切換工作目錄至之前的commit版本，任何git reflog內有的commit紀錄都能切換到。
 
-但要注意，執行此指令後，因為HEAD沒有跟著此指令做切換(HEAD detached(分離))，在那一點後所做的任何commit都不會有branch追蹤。如果一時疏忽跳到其他branch，從那點後所做的所有commit都會失蹤(commit紀錄都還存在，但沒有branch追蹤到它們)。如下圖，左圖有2個紀錄，commit: A add 2和commit: A add 3從commit: A.txt延伸出來，commit: A add 2和commit: A add 3上面沒有branch標籤，此時他們沒有被任何分支追蹤。再來，我們用git checkout master切換到master主支，log flow馬上就更新成右圖，可以發現2個commit: A add 2和A add 3都不見了，因為沒有branch可以追蹤的到它們。
+但要注意，執行此指令後，因為HEAD沒有跟著此指令做切換(HEAD detached(分離))，在那一點後所做的任何commit都不會有branch追蹤。如果一時疏忽跳到其他branch，從那點後所做的所有commit都會失蹤(commit紀錄都還存在，但沒有branch追蹤的到它們)。如下圖，左圖有2個紀錄，commit: A add 2 和 commit: A add 3，從commit: A.txt延伸出來。commit: A add 2 和 commit: A add 3 上面沒有branch標籤，此時他們沒有被任何分支追蹤到。再來，我們用git checkout master切換到master主支，log flow馬上就更新成右圖，可以發現2個commit: A add 2 和 A add 3 都不見了，因為沒有branch追蹤的到它們。
 
 <figure class="half">
 	<img src="/images/git1/06.png" alt="tag">
-	<figcaption></figcaption>
 	<img src="/images/git1/07.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
@@ -122,20 +124,19 @@ git checkout是切換工作目錄的意思。
 </figure>
 
 ### Reset
-和git checkout不同，git reset不只工作目錄，連都會回到之前的commit版本。如下圖，左邊是git reset前，右邊是git reset後，我們已經看不到master branch上的A.txt紀錄了。這指令跟上一頁的感覺很像，圖上的綠箭頭是目前的工作目錄的位置。
+和git checkout不同，git reset不只工作目錄，連HEAD都會回到之前的commit版本。如下圖，左邊是git reset HEAD~1 前，右邊是git reset HEAD~1 後，我們可以看到master HEAD退回到上一個commit，看不到master branch上的A.txt紀錄了。這指令跟上一頁的感覺很像，圖上的綠箭頭是目前的工作目錄的位置。
 
 <figure class="half">
 	<img src="/images/git1/10.png" alt="tag">
-	<figcaption></figcaption>
 	<img src="/images/git1/11.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
 
-* 你可能有發現，只有master branch退後到前一個commit，其他branch都沒動。因為我們現在所在的branch為master，所以我們只能reset **master分支**。換言之，我們不能身在master，卻去reset myTest分支的commit。
+* 你可能有發現，只有master branch退後到前一個commit，其他branch都沒動。因為我們現在所在的branch為master，所以我們只會reset **master分支**。換言之，我們如果要reset master的commit，就要checkout到master！千萬別忘記，否則會有無預期的狀況發生。
 
 下面介紹三種不同的reset方式，其中比較常用的是--mixed和--hard。
 
-* git reset --mixed  {commit id}  #HEAD指到{commit id}，取消{commit id}之後所有commit的追蹤，但檔案變更仍保留(working tree沒改變)。當想要取消之前的幾次commit紀錄，又想保留之前所做的所有變更，就可以用這個指令。和取消上次存檔的感覺很像。
+* git reset --mixed  {commit id}  #HEAD指到{commit id}，所在branch將取消追蹤{commit id}之後的所有commit，但檔案變更仍保留(working tree沒改變)。當想要取消之前的幾次commit紀錄，又想保留之前所做的所有檔案變更，就可以用這個指令。和取消上次存檔的感覺很像。
 * git reset --hard {commit id}  #包含HEAD和檔案全部回復到{commit id}，和回到上次存擋狀態很像。
 * git reset --soft {commit id}  #是git reset –-mixed {commit id}後，又做了一次git add 
 
@@ -151,12 +152,11 @@ git checkout是切換工作目錄的意思。
 
 <figure class="half">
 	<img src="/images/git1/13.png" alt="tag">
-	<figcaption></figcaption
 	<img src="/images/git1/14.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
 
-使用這個指令，我們可以得到和遠端伺服器一樣的版本資料。本地的遠端追蹤分支有個特點，就是不能在上面做commit，要commit請在本地端相對應名稱的分支做commit，因為遠端追蹤分支如其名，專門用來追蹤遠端伺服器的版本。
+使用這個指令，我們可以得到和遠端伺服器一樣的版本資料。本地的遠端追蹤分支有個特點，就是不能在上面做commit，要commit請在本地端相對應名稱的分支做commit，因為遠端追蹤分支如其名，專門只用來追蹤遠端伺服器的版本。
 
 ### Merge
 本指令會將其他分支的最新版本合併到所在分支，其中需要注意的就是fast-forward和non fast-forward的差別，這一篇<a href="https://ihower.tw/blog/archives/2620">Git教學文章</a>寫得很清楚，在此截取其中一段:
@@ -177,7 +177,6 @@ git checkout是切換工作目錄的意思。
 
 <figure class="half">
 	<img src="/images/git1/16.png" alt="tag">
-	<figcaption></figcaption>
 	<img src="/images/git1/17.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
@@ -202,7 +201,6 @@ git rebase是重新定義基底點的意思，其說明在這篇<a href="https:/
 
 <figure class="half">
 	<img src="/images/git1/18.png" alt="tag">
-	<figcaption></figcaption>
 	<img src="/images/git1/19.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
@@ -224,7 +222,6 @@ git rebase是重新定義基底點的意思，其說明在這篇<a href="https:/
 
 <figure class="half">
 	<img src="/images/git1/20.png" alt="tag">
-	<figcaption></figcaption>
 	<img src="/images/git1/21.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
