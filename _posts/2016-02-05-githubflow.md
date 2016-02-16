@@ -10,12 +10,15 @@ image:
 ---
 
 ### 前言
-與以前的集中式(SVN)不同，開發者之間的協作方式因為 Git 的分散式特性而變得更為靈活多樣。其中，我認為 Github flow 很適合初學者，它實用又不繁複，對普通的小團隊非常夠用。此外，我也會在後面簡單介紹一下著名的 git flow，希望大家先熟悉 <a href="http://mis101bird.js.org/advancegit/">git branch 的操作</a>再繼續看下去。
+與以前的集中式(SVN)不同，開發者之間的協作方式因為 Git 的分散式特性而變得更為靈活多樣。其中，我認為 Github flow 很適合初學者，它實用又不繁複，對普通的小團隊非常夠用。希望大家先熟悉 <a href="http://mis101bird.js.org/advancegit/">git branch 的操作</a>再繼續看下去。
 
-<figure class="half">
-	<img src="/images/git2/01.png" alt="tag">
+<figure>
+	<img src="/images/git2/01.png" alt="log flow">
 	<figcaption></figcaption>
-	<img src="/images/git2/02.png" alt="tag">
+</figure>
+
+<figure>
+	<img src="/images/git2/02.png" alt="log flow">
 	<figcaption></figcaption>
 </figure>
 
@@ -57,7 +60,7 @@ Pull專案至本地端，並開始開發新功能。方式是產生一條屬於�
 	<figcaption></figcaption>
 </figure>
 
-接下來，push變更到自己的Github。
+接下來，push專案到自己的Github遠端儲存庫。
 
 <figure>
 	<img src="/images/git2/06.png" alt="log flow">
