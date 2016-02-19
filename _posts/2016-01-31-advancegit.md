@@ -53,7 +53,7 @@ Git 是如何知道你當前在哪個分支上工作的呢？其實答案也很�
 ### 重要原則
 Git branch相關的指令多到令人眼花撩亂，但有幾個原則搞清楚，在操作指令時就能比較得心應手。
 
-* 任何指令操作，被改變的永遠都是**當下工作目錄**！
+* 只有HEAD指標指向的工作目錄，才會被分支追蹤到。
 * 任何指令操作，被改變的永遠都是**當下所在分支**！
 
 以下舉merge和rebase的例子給大家看，針對下圖log flow做操作。
@@ -67,17 +67,17 @@ Git branch相關的指令多到令人眼花撩亂，但有幾個原則搞清楚�
 
 <figure>
 	<img src="/images/git1/03.png" alt="merge">
-	<figcaption></figcaption>
+	<figcaption>pic from The Will Will Web</figcaption>
 </figure>
 
 下一個例子是rebase，我們先git checkout到topic分支，之後的操作就只會動到topic branch。再來用git rebase master，將**當前這個分支**的基點移到master上。原來的master分支沒變，只有topic分支的基底位置變了，如下圖。
 
 <figure>
 	<img src="/images/git1/04.png" alt="rebase">
-	<figcaption></figcaption>
+	<figcaption>pic from The Will Will Web</figcaption>
 </figure>
 
-由上述例子，我們可以知道執行操作時，被改變的永遠是**當下所在的分支和工作目錄**，接下來我們挑幾個git指令做說明。
+由上述例子，我們可以知道執行操作時，被改變的永遠是**當下所在的分支**，接下來我們挑幾個git指令做說明。
 
 ### Checkout
 git checkout是切換工作目錄的意思。
