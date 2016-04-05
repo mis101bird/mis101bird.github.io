@@ -22,14 +22,14 @@ image:
 幸運的是我亂逛網站時，偶然得知了Volley框架。Volley是Google在2013 Google I/O大會上發表的網路通訊框架，它將Http的通訊細節都經過封裝，讓使用者能輕鬆的請求網路數據。
 GitHub中，比較複雜的APP也常看到Volley的蹤跡。但Volley有優點也有缺點，是否使用它要視情況而定。下面是Volley優缺點列表：
 
-###優點
+### 優點
 
 1. 高效能的GET/POST數據請求交互
 2. 幫忙處理複雜的網路圖片加載與緩存
 3. 性能穩定
 4. Google官方出的，保證功能全面
 
-###缺點
+### 缺點
 
 1. 不適合大數據的上傳/下載
 
@@ -259,7 +259,7 @@ public boolean ifInternetOpen(Context context){
 
 由上面說明撰寫物件。
 
-###xmlBeanList.java
+### xmlBeanList.java
 
 {% highlight java %}
 public class xmlBeanList {
@@ -278,7 +278,7 @@ public class xmlBeanList {
 }
 {% endhighlight %}
 
-###xmlEventBean.java
+### xmlEventBean.java
 
 {% highlight java %}
 public class xmlEventBean {
@@ -333,7 +333,7 @@ public class xmlEventBean {
 }
 {% endhighlight %}
 
-###Author.java
+### Author.java
 
 {% highlight java %}
 public class Author{
@@ -355,7 +355,7 @@ public class Author{
 
 最後將 xmlBeanList.class給SimpleXmlRequest class當參數，讓SimpleXmlRequest內的parseNetworkResponse中，serializer.read(clazz, data,**false**)去將XML data都解析成物件。其中的false代表XML格式不嚴格，要加才不易抱錯。
 
-###限制選項Enum: VolleyTAG
+### 限制選項Enum: VolleyTAG
 
 最後，為了配合不同的請求目標URL，就要有相應不同的TAG管理，Enum就是個很好限制選項的寫法。使用自訂Enum並 限制住呼叫建構子的方法，讓使用者不會搞錯TAG，詳細教學<a href="http://cloudchen.logdown.com/posts/179666/about-the-java-enum-i-know">見這</a>。
 
@@ -378,14 +378,14 @@ public enum VolleyTAG {
 }
 {% endhighlight %}
 
-###結果：成功映射出XML data物件
+### 結果：成功映射出XML data物件
 
 <figure>
 	<img src="/images/snapevent3/02.PNG" alt="XML">
 	<figcaption></figcaption>
 </figure>
 
-###程式碼
+### 程式碼
 
 git clone下面專案到自己的電腦後，使用 **git checkout a5ab .**。
 
