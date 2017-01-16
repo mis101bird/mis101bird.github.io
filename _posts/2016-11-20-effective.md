@@ -12,7 +12,7 @@ image:
 ### 推薦
 
 <figure>
-	<img src="/images/effective/cover.PNG" alt="book cover">
+	<img src="/images/effective/cover.png" alt="book cover">
 	<figcaption></figcaption>
 </figure>
 
