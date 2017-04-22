@@ -14,7 +14,7 @@ image:
 ### 推薦
 
 <figure>
-	<img src="/images/rapidlearner/top.PNG" alt="rapid learner">
+	<img src="/images/rapidlearner/top.png" alt="rapid learner">
 	<figcaption></figcaption>
 </figure>
 
@@ -210,8 +210,8 @@ Ex.  英文對話 > 英文單字：小專案 > 程式面試題 > 重看筆記
 Ex. 我把網路上的面試題 (google "JAVA 面試題") 找出來考自己一輪，把錯的、不清楚的地方列出來，由這些列出來關鍵字找出相對應的 Java 章節，重讀不清楚的部分，最後整理成一疊約20張的觀念字卡。每天去研究室等車的時候就刷一遍字卡，連續一個禮拜就可以變很熟了，完全無壓力！
 
 <figure class="half">
-	<img src="/images/rapidlearner/01.PNG" alt="tag">
-	<img src="/images/rapidlearner/02.PNG" alt="tag">
+	<img src="/images/rapidlearner/01.png" alt="tag">
+	<img src="/images/rapidlearner/02.png" alt="tag">
 	<figcaption></figcaption>
 </figure>
 
