@@ -11,10 +11,11 @@ url: //mis101bird.github.io
 owner:
   name:           Hsuan-Ju Lin
   avatar:         avatar.png
-  bio:            "A beginner of web development/Android Mobile development. Hobbies include drawing comic and taking photo."
+  bio:            "A beginner of web developer."
   email:          mis101bird@gmail.com
   # Social networking links used in footer. 
   github: mis101bird
+  codepen: mis101bird
   # Add in future
   linkedin: 
 
