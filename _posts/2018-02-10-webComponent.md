@@ -226,6 +226,10 @@ customElements.define('my-example', Example);
 
 關於兩個版本的差異可以參考<a href="https://hayato.io/2016/shadowdomv1/">此篇</a>，基本上 v0 的 custom element API 都有被 v1 向下支援，但 v0 的 Shadow piercing combinators 功能，也就是從外部透過 /deep/ 和 ::shadow 更改 shadow dom 的 style 方法已經完全被 v1 棄用，取而代之的是用<a href="https://www.polymer-project.org/2.0/docs/devguide/custom-css-properties"> custom css property </a>釋出 style 接口，讓使用元件的開發者，透過元件作者所定義的 css property 更改 style 樣式。我個人覺得這樣的改版讓元件使用者很不方便，因為元件開發者不太可能知道元件使用者要怎麼裝飾元件，所以不一定能提供出足夠多的客製 css properties 出來。
 
+### 實例
+
+<a href="https://m.tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=7525613">Yahoo 購物中心商品頁</a> 的手機版，下方出現的 App 下載橫幅就是由 web component 做的！觀看時請開無痕，並開Dev Tool Console 轉到 Mobile mode ~
+
 ---------------------------------------
 ### 參考
 * 更多關於 web component 的奧妙都能參考以下！
