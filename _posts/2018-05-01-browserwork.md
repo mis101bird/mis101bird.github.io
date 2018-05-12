@@ -69,7 +69,7 @@ setTimeout(function(){
 ### Notes on How Browser works!
 <a href="https://codeburst.io/how-browsers-work-6350a4234634">這篇文章</a>再一次詳細的書裡整個Browser的運作架構，也提到困擾我已久的"瀏覽器哪個process是single thread，哪個是multi-thread"等問題...
 
-簡單來說，瀏覽器是 multi-process，一個瀏覽器只有一個 Browser Process，負責管理 Tabs、協調其他 process 和將 Renderer process 存至 memory 內的 Bitmap 繪製到畫面上 (pixel)；在 Chrome，一個 Tab 一個 Renderer Process，Render process 是 multi-thread，main thread 負責頁面渲染 (GUI render engine)、執行JS (JS engine)和 event loop，network 和 Web API 的一些操作會交給其他 thread 執行。
+簡單來說，瀏覽器是 multi-process，一個瀏覽器只有一個 Browser Process，負責管理 Tabs、協調其他 process 和將 Renderer process 存至 memory 內的 Bitmap 繪製到畫面上 (pixel)；在 Chrome，一個 Tab 一個 Renderer Process，Renderer process 是 multi-thread，其中 main thread 負責頁面渲染 (GUI render engine)、執行JS (JS engine) 和 event loop；network component 可以開 2~6 個 I/O threads 平行去處理。
 
 當用戶輸入網址，Browser process 會下載頁面資料，將它交付給 Renderer process 做渲染，之後再將 Renderer process 吐出的結果拿來做繪製。
 
