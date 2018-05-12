@@ -25,13 +25,13 @@ image:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/cCOL7MC4Pl0" frameborder="0"></iframe>
 
-影片裡面提到 JS running code 和渲染 GUI render thread 不會產生 race condition，是因為兩者之間有 event loop 幫忙協調。Event loop 由瀏覽器的 main thread 負責執行，其他耗時操作 (ex. setTimeout, network, monitor) 會被分配到別的 thread 去執行，再回報給 main thread 去 render 畫面或執行 Javascript callback，如下圖。
+影片裡面提到 JS 解析和渲染 GUI 兩者不會產生 race condition，是因為它們之間有 event loop 幫忙協調。Event loop、JS engine 和 render engine 的工作都是由瀏覽器的 main thread 負責執行，其他耗時操作 (ex. setTimeout, network, monitor) 會被分配到其他 thread 去執行，再回報給 main thread 去 render 畫面或執行 Javascript callback，如下圖。
 
 ![Browserwork Image 03]({{ site.url }}/images/browserwork/03.png)
 
-Event loop 要搭配 task queue 才完整！task queue 可以比喻成 event loop 的 To Do List，event loop 會在空閒時取出 queue 中的任務 (task) 執行。
+Event loop 要搭配 task queue 才 work！Task queue 可以比喻成 event loop 的 To Do List，event loop 會在空閒時取出 queue 中的任務 (task) 執行。
 
-JS engine 和 GUI render thread 是互斥無法同時運行的，如果在 task 裡定義執行 while 無限迴圈，會 block event loop 導致瀏覽器畫面無法更新而死當，參考下面程式碼。
+JS engine 和 GUI render engine 因為都是使用同一條 main thread，故如果在 JS task 裡定義執行 while 無限迴圈，會 block event loop 導致瀏覽器畫面無法更新而死當，參考下面程式碼。
 
 {% highlight javascript%}
 setTimeout(function(){
@@ -39,7 +39,7 @@ setTimeout(function(){
 }, 0);
 {% endhighlight %}
 
-下圖白色的方框走到的地方代表 event loop 正在執行的任務，左邊是 Task queue，右邊是 GUI render thread，requestAnimationFrame 會在畫 Frame 之前執行 (Safari 的 Raf 是在畫 Frame 之後)，瀏覽器會保證在畫 Frame 前執行完全部 "已經發出" 的 Animation callbacks。
+下圖白色的方框代表目前 main thread 走到的地方，左邊是 Task queue，右邊是 GUI render engine，requestAnimationFrame 會在畫 Frame 之前執行 (Safari 的 Raf 是在畫 Frame 之後)，瀏覽器會保證在畫 Frame 前執行完全部 "已經發出" 的 Animation callbacks。
 
 ![Browserwork Image 04]({{ site.url }}/images/browserwork/04.png)
 
@@ -66,15 +66,10 @@ setTimeout(function(){
 
 在聽影片的過程，我也找了一些文章來解答自己的一些疑問，在下面分享。
 
-### 瀏覽器從宏觀到細部的一次全面梳理
-<a href="http://www.dailichun.com/2018/01/21/js_singlethread_eventloop.html">這篇文章</a>詳細說明了瀏覽器哪裡是 multi-process 哪裡是 single-process、哪些是 multi-thread 哪些是 single-thread，在看這一篇之前我一直懷疑 event loop 是包含在 JS engine 裡的，但如果包含那不就不是我以前學到的 single thread 了嗎 (哭)，好險在這裡找到了解答。
+### Notes on How Browser works!
+<a href="https://codeburst.io/how-browsers-work-6350a4234634">這篇文章</a>再一次詳細的書裡整個Browser的運作架構，也提到困擾我已久的"瀏覽器哪個process是single thread，哪個是multi-thread"等問題...
 
-簡單來說，瀏覽器是 multi-process，一個瀏覽器只有一個 Browser Process，負責管理 Tabs、協調其他 process 和將 Renderer process 存至 memory 內的 Bitmap 繪製到畫面上 (pixel)；一個 Tab 一個 Renderer Process，負責頁面渲染和 script 的執行等，內部為 multi thread。Renderer Process 內主要有 GUI render thread / JS engine thread / 事件觸發 thread:
-
-* GUI render thread 負責解析 HTML/CSS 和執行 Layout/Paint/Composite 等繪製過程，該 thread 也執行 reflow 和 repaint 操作
-* JS engine thread 負責執行 JS script
-* 事件觸發 thread 是 event loop 所在的 thread，負責協調 GUI render thread 和 JS engine thread
-* GUI render thread 和 JS engine thread 互斥，一方執行就會 block 另一方
+簡單來說，瀏覽器是 multi-process，一個瀏覽器只有一個 Browser Process，負責管理 Tabs、協調其他 process 和將 Renderer process 存至 memory 內的 Bitmap 繪製到畫面上 (pixel)；在 Chrome，一個 Tab 一個 Renderer Process，Render process 是 multi-thread，main thread 負責頁面渲染 (GUI render engine)、執行JS (JS engine)和 event loop，network 和 Web API 的一些操作會交給其他 thread 執行。
 
 當用戶輸入網址，Browser process 會下載頁面資料，將它交付給 Renderer process 做渲染，之後再將 Renderer process 吐出的結果拿來做繪製。
 
